@@ -1,7 +1,7 @@
-import ListViewPage from '@/pages/ListViewPage';
+import HomePage from '@/pages/HomePage';
 
 function App() {
-  return <ListViewPage />;
+  return <HomePage />;
 }
 
 export default App;
