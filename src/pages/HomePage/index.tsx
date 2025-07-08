@@ -1,11 +1,14 @@
+import { useState } from 'react';
+
+import { useDeleteSchedule } from '@/domain/schedule/apis/useDeleteSchedule';
 import { useGetSchedule } from '@/domain/schedule/apis/useGetSchedule';
 import { usePostSchedule } from '@/domain/schedule/apis/usePostSchedule';
-import { useState } from 'react';
 
 const HomePage = () => {
   const [value, setValue] = useState('');
   const { data } = useGetSchedule();
   const { mutate: postSchedule } = usePostSchedule();
+  const { mutate: deleteSchedule } = useDeleteSchedule();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,13 +20,14 @@ const HomePage = () => {
     setValue(e.target.value);
   };
 
-  console.log(data);
-
   return (
     <div>
       <ul>
         {data?.map(item => (
-          <li key={item.id}>{item.title}</li>
+          <li key={item.id}>
+            {item.title}
+            <button onClick={() => deleteSchedule(item.id)}>삭제</button>
+          </li>
         ))}
       </ul>
       <form onSubmit={onSubmit}>
