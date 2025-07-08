@@ -1,8 +1,6 @@
-import useSession from '@/common/hooks/useSession';
-import HomePage from '@/pages/HomePage';
-import LoginPage from '@/pages/LoginPage';
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import Router from '@/pages/Router';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,8 +16,11 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const session = useSession();
-  return <QueryClientProvider client={queryClient}>{session ? <HomePage /> : <LoginPage />}</QueryClientProvider>;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router />
+    </QueryClientProvider>
+  );
 }
 
 export default App;
