@@ -1,18 +1,18 @@
 import supabase from '@/common/utils/client';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const postSchedule = async (title: string) => {
+const postChicken = async (title: string) => {
   const { data } = await supabase.from('chicken').insert({ title: title });
   return data;
 };
 
-export const usePostSchedule = () => {
+export const usePostChicken = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: postSchedule,
+    mutationFn: postChicken,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['chicken'] });
+      queryClient.invalidateQueries({ queryKey: ['chickens'] });
     },
   });
 };

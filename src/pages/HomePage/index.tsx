@@ -1,39 +1,19 @@
-import { useState } from 'react';
+import { useGetChickens } from '@/domain/chicken/apis/useGetChickens';
 
-import { useDeleteSchedule } from '@/domain/schedule/apis/useDeleteSchedule';
-import { useGetSchedule } from '@/domain/schedule/apis/useGetSchedule';
-import { usePostSchedule } from '@/domain/schedule/apis/usePostSchedule';
+import ChickenItem from '@/domain/chicken/components/ChickenItem';
+import ChickenInput from '@/domain/chicken/components/ChickenInput';
 
 const HomePage = () => {
-  const [value, setValue] = useState('');
-  const { data } = useGetSchedule();
-  const { mutate: postSchedule } = usePostSchedule();
-  const { mutate: deleteSchedule } = useDeleteSchedule();
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    postSchedule(value);
-    setValue('');
-  };
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
+  const { data } = useGetChickens();
 
   return (
     <div>
       <ul>
-        {data?.map(item => (
-          <li key={item.id}>
-            {item.title}
-            <button onClick={() => deleteSchedule(item.id)}>삭제</button>
-          </li>
+        {data?.map(chicken => (
+          <ChickenItem key={chicken.id} chicken={chicken} />
         ))}
       </ul>
-      <form onSubmit={onSubmit}>
-        <input type="text" value={value} onChange={onChange} />
-        <button type="submit">추가</button>
-      </form>
+      <ChickenInput />
     </div>
   );
 };
