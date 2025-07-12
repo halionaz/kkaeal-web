@@ -9,5 +9,5 @@ export const Container = style({
 
 export const Wrapper = style({
   width: '100%',
-  maxWidth: '600px',
+  maxWidth: '550px',
 });
