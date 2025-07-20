@@ -1,8 +1,5 @@
-import { layer } from '@vanilla-extract/css';
-import { globalStyle } from '@vanilla-extract/css';
+import { createGlobalTheme, globalStyle } from '@vanilla-extract/css';
 import { globalFontFace } from '@vanilla-extract/css';
-
-export const reset = layer('reset');
 
 const pretendard = 'Pretendard-Regular';
 
@@ -14,4 +11,11 @@ globalFontFace(pretendard, {
 
 globalStyle('html', {
   fontFamily: pretendard,
+});
+
+export const vars = createGlobalTheme(':root', {
+  color: {
+    main: '#111827',
+    white: '#fff',
+  },
 });

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { usePostChicken } from '@/domain/chicken/apis/usePostChicken';
+import Button from '@/common/components/Button';
 
 const ChickenInput = () => {
   const [value, setValue] = useState('');
@@ -19,7 +20,7 @@ const ChickenInput = () => {
   return (
     <form onSubmit={onSubmit}>
       <input type="text" value={value} onChange={onChange} />
-      <button type="submit">추가</button>
+      <Button type="submit">추가</Button>
     </form>
   );
 };
