@@ -8,12 +8,10 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "knip": "knip"
   },
   "dependencies": {
-    "@supabase/auth-ui-react": "^0.4.7",
-    "@supabase/auth-ui-shared": "^0.1.8",
-    "@supabase/supabase-js": "^2.50.3",
     "@tanstack/react-query": "^5.81.5",
     "axios": "^1.10.0",
     "mingcute_icon": "^2.9.6",
@@ -34,6 +32,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "knip": "^5.70.2",
     "prettier": "^3.6.2",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
