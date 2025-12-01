@@ -12,6 +12,7 @@
     "knip": "knip"
   },
   "dependencies": {
+    "@kky/ko-date-parse": "npm:@jsr/kky__ko-date-parse",
     "@tanstack/react-query": "^5.81.5",
     "axios": "^1.10.0",
     "mingcute_icon": "^2.9.6",

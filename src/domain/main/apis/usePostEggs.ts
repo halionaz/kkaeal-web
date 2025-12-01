@@ -1,6 +1,6 @@
 import { useGetUser } from '@/common/apis/useGetUser';
 import { QUERY_KEYS } from '@/libs/constants/QUERY_KEYS';
-import { EggInterface } from '@/libs/types';
+import { EggInputInterface, EggInterface } from '@/libs/types';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 const postEggs = async (egg: Omit<EggInterface, 'id' | 'createdAt' | 'updatedAt'>) => {
@@ -21,9 +21,8 @@ export const usePostEggs = () => {
   const queryClient = useQueryClient();
   const { data: user } = useGetUser();
   return useMutation({
-    mutationFn: (egg: Omit<EggInterface, 'id' | 'userId' | 'createdAt' | 'updatedAt'>) => {
+    mutationFn: (egg: EggInputInterface) => {
       if (!user?.id) {
-        console.log(egg);
         throw new Error('User not found');
       }
       return postEggs({

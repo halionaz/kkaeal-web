@@ -15,17 +15,10 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-          main: { value: '#111827' },
-          white: { value: '#fff' },
+          bg: { black: { value: '#101010' }, gray: { value: '#303030' } },
+          white: { value: '#ffffff' },
         },
       },
-    },
-  },
-  globalFontface: {
-    Pretendard: {
-      src: 'url("https://cdnjs.cloudflare.com/ajax/libs/pretendard/1.3.9/static/pretendard.min.css") format("font-woff2")',
-      fontWeight: 400,
-      fontStyle: 'normal',
     },
   },
   globalCss: {

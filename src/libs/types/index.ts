@@ -5,6 +5,7 @@ export interface EggInterface {
   userId: string;
   createdAt: string;
   updatedAt: string;
+  categoryId: string | null;
 
   title: string;
   notes: string | null;
@@ -18,6 +19,8 @@ export interface EggInterface {
   // 반복 정보
   repeat: RepeatType;
 }
+
+export type EggInputInterface = Omit<EggInterface, 'id' | 'userId' | 'createdAt' | 'updatedAt'>;
 
 export type RepeatType = {
   type: 'daily' | 'weekly' | 'monthly' | 'yearly';
@@ -44,3 +47,13 @@ export interface FryInterface {
   endDate: string | null;
   endTime: string | null;
 }
+
+export interface CategoryInterface {
+  id: string;
+  userId: string;
+  name: string;
+  color: string;
+  icon: string;
+}
+
+export type ViewType = 'daily' | 'weekly' | 'monthly';
