@@ -4,8 +4,13 @@ import { useState } from 'react';
 
 import * as s from './style.css';
 import { parseInputText } from '@/domain/main/utils/parseInputText';
+import { getHeaderText } from '@/domain/main/utils/getHeaderText';
+import EggItem from '@/domain/main/components/EggItem';
 
-const DailyView = () => {
+interface Props {
+  baseDate: Date;
+}
+const DailyView = ({ baseDate }: Props) => {
   const { mutate: postEgg } = usePostEggs();
   const { data } = useGetEggs();
 
@@ -29,14 +34,17 @@ const DailyView = () => {
 
   return (
     <div className={s.Wrapper}>
-      <ul>
+      <h2 className={s.Header}>{getHeaderText(baseDate, 'daily')}</h2>
+      <ul className={s.List}>
         {data?.map(egg => (
-          <li key={egg.id}>{egg.title}</li>
+          <EggItem key={egg.id} egg={egg} />
         ))}
       </ul>
-      <form onSubmit={onSubmit}>
-        <input type="text" value={inputText} onChange={e => setInputText(e.target.value)} />
-        <button>추가</button>
+      <form className={s.Form} onSubmit={onSubmit}>
+        <div className={s.FormContainer}>
+          <input type="text" value={inputText} onChange={e => setInputText(e.target.value)} />
+          <button type="submit">추가</button>
+        </div>
       </form>
     </div>
   );

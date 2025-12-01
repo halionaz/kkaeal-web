@@ -60,3 +60,8 @@
   font-weight: 900;
   font-display: swap;
 }
+
+[class^='mgc_']::before,
+[class*=' mgc_']::before {
+  color: inherit !important;
+}

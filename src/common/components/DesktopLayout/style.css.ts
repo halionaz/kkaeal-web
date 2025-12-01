@@ -11,5 +11,5 @@ export const Wrapper = css({
 
 export const Content = css({
   width: '100%',
-  maxWidth: '450px',
+  maxWidth: '860px',
 });

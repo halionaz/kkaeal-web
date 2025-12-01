@@ -1,10 +1,10 @@
 import { EggInterface } from '@/libs/types';
 
 interface Props {
-  data: EggInterface;
+  egg: EggInterface;
 }
-const EggItem = ({ data }: Props) => {
-  return <div>{data.title}</div>;
+const EggItem = ({ egg }: Props) => {
+  return <li>{egg.title}</li>;
 };
 
 export default EggItem;

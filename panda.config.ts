@@ -17,6 +17,7 @@ export default defineConfig({
         colors: {
           bg: { black: { value: '#101010' }, gray: { value: '#303030' } },
           white: { value: '#ffffff' },
+          lightGray: { value: '#CCC' },
         },
       },
     },

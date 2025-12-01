@@ -1,7 +1,7 @@
 import { EggInputInterface } from '@/libs/types';
 import { parseKoreanDate } from '@kky/ko-date-parse';
 
-// TODO: 알고리즘 고도화
+// TODO: 알고리즘 고도화, 자연어를 완벽하게 parsing 하여야 함
 const getDateFromText = (text: string) => {
   const parsedDateWithFormat = new Date(text);
   if (parsedDateWithFormat.toString() !== 'Invalid Date') return parsedDateWithFormat;

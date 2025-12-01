@@ -3,8 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router';
 
 import '@/reset.css';
-import '@/style.css';
 import 'mingcute_icon/font/Mingcute.css';
+import '@/style.css';
 
 import App from '@/App';
 
